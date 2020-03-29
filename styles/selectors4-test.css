@@ -1,0 +1,27 @@
+body {
+    background-color: #fff;
+    color: #333;
+    font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 1em;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    margin: 0;
+}
+
+h2 + p {
+    color: red;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul.list > li {
+    border-bottom: 1px solid grey;
+}
