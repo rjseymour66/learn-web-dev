@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Ryan Seymour">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="styles/form.css"> -->
+  <link rel="stylesheet" href="styles/payment.css">
+  <title>Forms</title>
+</head>
+
+<body>
+  <header>
+    <h1>Forms</h1>
+    <nav>
+      <ul>
+        <li>Heading One</li>
+        <li>Heading Two</li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <h1>First form</h1>
+    <form action="/my-handling-form-page" method="post">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name">
+        </li>
+        <li>
+          <label for="mail">Email:</label>
+          <input type="mail" id="mail" name="user_mail">
+        </li>
+        <li>
+          <label for="msg">Message:</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </li>
+        <li class="button">
+          <button type="submit">Send your message</button>
+        </li>
+      </ul>
+    </form>
+
+    <h1>fieldset</h1>
+    <form>
+      <fieldset>
+        <legend>Fruit juice size</legend>
+        <p>
+          <input type="radio" name="size" id="size_1" value="small">
+          <label for="size_1">Small</label>
+        </p>
+        <p>
+          <input type="radio" name="size" id="size_2" value="medium">
+          <label for="size_2">Medium</label>
+        </p>
+        <p>
+          <input type="radio" name="size" id="size_3" value="large">
+          <label for="size_3">Large</label>
+        </p>
+      </fieldset>
+    </form>
+
+    <h1>Checkboxes</h1>
+    <form>
+      <p>
+        <input type="checkbox" id="taste_1" name="taste_cherry" value="cherry">
+        <label for="taste_1">I like cherry</label>
+      </p>
+      <p>
+        <input type="checkbox" id="taste_2" name="taste_banana" value="banana">
+        <label for="taste_2">I like banana</label>
+      </p>
+    </form>
+
+
+    <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
+
+    <!-- So this: -->
+    <div>
+      <label for="username">Name:</label>
+      <input id="username" type="text" name="username">
+      <label for="username"><abbr title="required" aria-label="required">*</abbr></label>
+    </div>
+
+    <!-- would be better done like this: -->
+    <div>
+      <label for="username">
+        <span>Name:</span>
+        <input id="username" type="text" name="username">
+        <abbr title="required" aria-label="required">*</abbr>
+      </label>
+    </div>
+
+    <!-- But this is probably best: -->
+    <div>
+      <label for="username">Name: <abbr title="required" aria-label="required">*</abbr></label>
+      <input id="username" type="text" name="username">
+    </div>
+
+
+
+    <form action="">
+      <h1>Payment form</h1>
+      <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
+
+      <section>
+        <h2>Contact information</h2>
+        <fieldset>
+          <legend>Title</legend>
+          <ul>
+            <li>
+              <label for="title_1">
+                <input type="radio" id="title_1" name="title" value="K">
+                King
+              </label>
+            </li>
+            <li>
+              <label for="title_2">
+                <input type="radio" id="title_2" name="title" value="Q">
+                Queen
+              </label>
+            </li>
+            <li>
+              <label for="title_3">
+                <input type="radio" id="title_3" name="title" value="J">
+                Joker
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+        <p>
+          <label for="name">
+            <span>Name: </span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="text" id="name" name="username">
+        </p>
+        <p>
+          <label for="mail">
+            <span>E-mail: </span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="email" id="mail" name="usermail">
+        </p>
+        <p>
+          <label for="pwd">
+            <span>Password: </span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="password" id="pwd" name="password">
+        </p>
+      </section>
+
+      <section>
+        <h2>Payment information</h2>
+        <p>
+          <label for="card">
+            <span>Card type:</span>
+          </label>
+          <select id="card" name="usercard">
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+        </p>
+        <p>
+          <label for="number">
+            <span>Card number:</span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="tel" id="number" name="cardnumber">
+        </p>
+        <p>
+          <label for="date">
+            <span>Expiration date:</span>
+            <strong><abbr title="required">*</abbr></strong>
+            <em>formatted as mm/dd/yyyy</em>
+          </label>
+          <input type="date" id="date" name="expiration">
+        </p>
+      </section>
+      <p> <button type="submit">Validate the payment</button> </p>
+
+    </form>
+
+
+    <form action="">
+      <input type="text" id="comment" name="comment" value="I'm a text field">
+      <input type="password" id="pwd" name="pwd">
+      <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
+      <input type="checkbox" id="carrots" name="carrots" value="carrots" checked>
+    </form>
+
+
+    <fieldset>
+      <legend>What is your favorite meal?</legend>
+      <ul>
+        <li>
+          <label for="soup">Soup</label>
+          <input type="radio" id="soup" name="meal" value="soup" checked>
+        </li>
+        <li>
+          <label for="curry">Curry</label>
+          <input type="radio" id="curry" name="meal" value="curry">
+        </li>
+        <li>
+          <label for="pizza">Pizza</label>
+          <input type="radio" id="pizza" name="meal" value="pizza">
+        </li>
+      </ul>
+    </fieldset>
+
+
+
+    <input type="image" alt="Click me!" src="my-img.png" width="80" height="30">
+
+    <input type="file" accept="image/*;capture=camera">
+    <input type="file" accept="video/*;capture=camcorder">
+    <input type="file" accept="audio/*;capture=microphone">
+
+    <section>
+      <form action="">
+        <input type="tel" id="tel" name="tel">
+        <input type="number" name="age" id="age" min="1" max="10" step="2">
+        <input type="number" name="change" id="pennies" min="0" max="1" step="0.01">
+      </form>
+    </section>
+
+    <section>
+      <form action="" method="post">
+        <h1>Slider</h1>
+        <label for="price">Choose a maximum house price: </label>
+        <input type="range" name="price" id="price" min="50000" max="500000" step="100" value="250000">
+        <output class="price-output" for="price"></output>
+
+
+        <input type="datetime-local" name="datetime" id="datetime">
+        <input type="month" name="month" id="month">
+        <input type="time" name="time" id="time">
+        <input type="week" name="week" id="week">
+
+        <label for="myDate">When are you available this summer?</label>
+        <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" step="7" id="myDate">
+
+
+        <input type="color" name="color" id="color">
+      </form>
+    </section>
+
+    <section>
+      <h1>Other form controls</h1>
+      <textarea cols="30" rows="8"></textarea>
+    </section>
+
+    <section>
+      <h1>Drop-downs</h1>
+      <select id="simple" name="simple">
+        <option>Banana</option>
+        <option selected>Cherry</option>
+        <option>Lemon</option>
+      </select>
+    </section>
+
+    <section>
+      <select id="groups" name="groups">
+        <optgroup label="fruits">
+          <option>Banana</option>
+          <option selected>Cherry</option>
+          <option>Lemon</option>
+        </optgroup>
+        <optgroup label="vegetables">
+          <option>Carrot</option>
+          <option>Eggplant</option>
+          <option>Potato</option>
+        </optgroup>
+      </select>
+    </section>
+
+    <section>
+      <h1>Multiple choice select box</h1>
+      <select id="multi" name="multi" multiple size="2">
+        <optgroup label="fruits">
+          <option>Banana</option>
+          <option selected>Cherry</option>
+          <option>Lemon</option>
+        </optgroup>
+        <optgroup label="vegetables">
+          <option>Carrot</option>
+          <option>Eggplant</option>
+          <option>Potato</option>
+        </optgroup>
+      </select>
+    </section>
+
+    <section>
+      <h1>Autocomplete box</h1>
+      <label for="myFruit">What's your favorite fruit?</label>
+      <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+      <datalist id="mySuggestion">
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Blackberry</option>
+        <option>Blueberry</option>
+        <option>Lemon</option>
+        <option>Lychee</option>
+        <option>Peach</option>
+        <option>Pear</option>
+      </datalist>
+    </section>
+
+    <section>
+      <h1>Meters and progress bars</h1>
+      <progress max="100" value="75">75/100</progress>
+<br>
+      <meter min="0" max="100" value="75" low="33" high="66" optimum="50">25</meter>
+    </section>
+
+
+  </main>
+
+</body>
+
+</html>
