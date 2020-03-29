@@ -1,0 +1,42 @@
+/*
+p, 
+ul {
+  border: 2px solid rebeccapurple;
+  padding: .5em;
+}
+
+.block,
+li {
+  border: 2px solid blue;
+  padding: .5em;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+.block {
+  display: block;
+}      
+*/
+
+p, 
+ul {
+  border: 2px solid rebeccapurple;
+}
+
+span,
+li {
+  border: 2px solid blue;
+}
+
+ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+} 
+
+.inline {
+  display: inline;
+}
