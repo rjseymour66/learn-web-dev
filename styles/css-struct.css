@@ -1,0 +1,52 @@
+p {
+    color: red;
+}
+
+.special {
+    color: red;
+}
+
+p {
+    color: blue;
+}
+
+.outer {
+    border: 5px solid black;
+}
+
+/*
+.outer .box {
+    padding: 10px;
+    width: calc(90% - 30px);
+    background-color: rebeccapurple;
+    color: white;
+}
+
+
+.box {
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    transform: rotate(0.8turn)
+  }
+
+  */
+
+body {
+    background-color: pink;
+}
+
+@media (min-width: 30em) {
+    body {
+        background-color: blue;
+    }
+}
+
+body {
+    background-color: red;
+    background-image: url(bg-graphic.png);
+    background-position: 10px 10px;
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+}
