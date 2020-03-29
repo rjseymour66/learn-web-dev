@@ -1,0 +1,14 @@
+input[type="search"] {
+    -webkit-appearance: none; 
+    appearance: none;
+  }
+
+span {
+    display: inline-block;
+    background: red;
+}
+
+input[type="checkbox"] {
+    width: 100px;
+    height: 100px;
+}
