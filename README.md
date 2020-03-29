@@ -379,12 +379,12 @@ h1 ~ p {
     - Will break onto a new line 
     - width and height are respected
     - Padding, margin, and border cause other elements to be pushed away from the box
-    - headings (<h1>) and <p> tags are all block
+    - headings (h1) and p tags are all block
 2. Inline box 
     - Does not break onto a new line 
     - Width and height do not apply
     - Padding, margin, and border apply but do not cause other inline boxes to move away from the box
-    - <a> <span> <em> <strong> are all examples of inline
+    - a span em strong are all examples of inline
 
 More info: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow
 
