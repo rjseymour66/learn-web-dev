@@ -737,3 +737,32 @@ Accepts hue, saturation, and lightness values.
 
 
 https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS
+
+# Sizing items
+
+**Intrinsic size** is when the size comes from the image itself.
+**Extrinsic size** is when a size is given to an element.
+
+## Using percentages
+You need to be aware of what it is a percentage of - it may be a percentage of the parent container.
+
+### Percentage margins and padding 
+When you use margin and padding set in percentages, the value is calculated from the **inline size** - the width, when working in horizontal language. If you set the margins and padding to 10%, then you have equal sized margins and padding all around the box. 
+
+### min- and max- sizes 
+
+`min-height` - if you have a box that might contain a variable amount of content, and you always want it to be at least a certain height
+`max-width` - use to cause images to scale down if there is not enough space to display them at their intrinsic width, making sure they don't become larger than that width.
+- For example, if you set `width: 100%` on an image, and its instrinsic width was smaller than its container, the image would be forced to stretch and become larger and then be more pixellated. So, use `max-width` to make sure the image stops at 100% of its size.
+- This is making images **responsive**
+
+### Viewport units
+
+The viewport is the visible area of your page in the browser that you are using to view a site. It also has a size.
+
+`vw` - viewport width
+`vh` - viewport height
+
+Viewport settings are relativea and change when you change the size of the viewport.
+
+`1vw` = 1% of the viewport width
