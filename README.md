@@ -668,3 +668,46 @@ Or set each corner:
   border-top-right-radius: 1em 10%; 
 } 
 ```
+
+# Handling different text directions
+
+Different writing directionalities are called **writing modes**.
+
+The `writing-mode` property lets us switch from one writing mode to another.
+
+```css
+h1 {
+  writing-mode: vertical-rl;
+}
+```
+
+There are 3 positions for writing-mode:
+1. `horizontal-tb`: Top-to-bottom block flow direction. Sentences run horizontally.
+2. `vertical-rl`: Right-to-left block flow direction. Sentences run vertically.
+3. `vertical-lr`: Left-to-right block flow direction. Sentences run vertically.
+
+Blocks are displayed only from the top to the bottom of the page if you are using a writing mode that displays text horizontally, such as English. 
+
+#### When you switch the writing mode, you are changing which direction is block and which is inline.
+
+#### So, the **block dimension** is always the direction bolcks are displayed on the page in the writing mode in use.
+
+#### Inline direction is always the direction the sentence flows. 
+
+### Logical properties
+
+When we write in different directions, we want to swap out the standard `width` and `height` with something that is more closely tied to the direction that the text is flowing. So, now we have **logical** or **flow-relative** versions.
+
+| Original  | Logical |
+|:-------------|:--------|
+|`inline-size` | `width` |
+| `block-size` | `height` |
+|`margin-top`  | `margin-block-start` |
+| `padding-left` | `padding-inline-start` |
+| `border-bottom` | `border-block-end` |
+| | |
+| | |
+|`top` | `block-start` |
+|`right` | `inline-end` |
+| `bottom` | `block-end` |
+| `left` | `inline-start` |
