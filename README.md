@@ -700,8 +700,8 @@ When we write in different directions, we want to swap out the standard `width` 
 
 | Original  | Logical |
 |:-------------|:--------|
-|`inline-size` | `width` |
-| `block-size` | `height` |
+| `width` | `inline-size` |
+| `height` | `block-size` |
 |`margin-top`  | `margin-block-start` |
 | `padding-left` | `padding-inline-start` |
 | `border-bottom` | `border-block-end` |
