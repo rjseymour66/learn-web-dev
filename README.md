@@ -711,3 +711,29 @@ When we write in different directions, we want to swap out the standard `width` 
 |`right` | `inline-end` |
 | `bottom` | `block-end` |
 | `left` | `inline-start` |
+
+# Overflowing content
+
+Overflow is what happens when there is too much content to be contained comfortably inside a box.
+
+## Overflow property 
+
+`overflow` is how you take control of an element's overflow and tell the browser how you want it to behave. The default value is `visible`.
+
+- To crop overflowed content, use `overflow: hidden`.
+- To add scrollbars, use `overflow: scroll`.
+- To scroll only on the y-axis, use `overflow-y: scroll` 
+- To scroll only on the x-axis, use `overflow-x: scroll` **NOT RECOMMENDED**
+- To have the browser decide about scrollbars, use `overflow: auto`
+
+# Values and units
+
+## RGB
+RGBA - the `A` is opacity.
+
+## HSL and HSLA values
+Not well-supported 
+Accepts hue, saturation, and lightness values.
+
+
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS
