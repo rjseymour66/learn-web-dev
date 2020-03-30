@@ -530,3 +530,141 @@ Use `display:inline-block` for the following with inline blocks:
 It does not break into a new line.
 
 Use this when you want a larger target area for a <a display: inline-block> tag. This is used often with navigation bars.
+
+# Background
+
+## Background colors 
+`background-color` defines the background color on any element in CSS and extends underneath the content and padding box of the element.
+
+## Background images 
+`background-image` lets you display an image in the background of an element. Background images are not scaled down when you use them.  
+
+If you add a `background-color` with `background-image`, then the image is displayed on top of the color.
+
+### Background repeat
+
+The `background-repeat` property is used to control the tiling behavior of images. The available values are:
+
+- `no-repeat` — stop the background from repeating altogether.
+- `repeat-x` — repeat horizontally.
+- `repeat-y` — repeat vertically.
+- `repeat` — the default; repeat in both directions.
+
+## Sizing the background image 
+
+Use the `background-size property`, which can take length or percentage values, to size the image to fit inside the background.
+
+- `cover` - browser makes the image just large enough so that it completely covers the box area while maintaining its aspect ratio. In some cases, part of the image may end up outside of the box.
+- `contain` - browser makes the image the right size to fit inside the box. You may wind up with gaps on either side of the image if the aspect ration is different from the box.
+
+
+## Positioning the background image 
+
+`background-position` allows you to choose the position in which the background image appears on the box it is applied to. It uses a coordinate system where the top-left-hand corner of the box is (0, 0) and the box is positioned along the horizontal (x) and the vertical (y) axes.
+
+**Examples:**
+```css 
+.box { 
+  background-image: url(star.png); 
+  background-repeat: no-repeat; 
+  background-position: top center; 
+}
+```
+
+```css 
+.box { 
+  background-image: url(star.png); 
+  background-repeat: no-repeat; 
+  background-position: 20px 10%; 
+}
+```
+
+```css 
+.box {
+  background-image: url(star.png);
+  background-repeat: no-repeat;
+  background-position: top 20px;
+}
+```
+
+4-value syntax indicates a distance from certain edges of the box. The following is 20px from the top, 10px from the right.
+
+```css
+.box { 
+  background-image: url(star.png); 
+  background-repeat: no-repeat; 
+  background-position: top 20px right 10px; 
+}
+```
+
+## Gradient backgrounds 
+
+Set using the `background-image` property. Here is a gradient generator:
+
+https://cssgradient.io/
+
+## Multiple background images 
+
+Use `background-image` and separate each image with a comma:
+
+```css
+background-image: url(image1.png), url(image2.png), url(image3.png), url(image1.png);
+background-repeat: no-repeat, repeat-x, repeat;
+background-position: 10px 20px,  top right;
+```
+
+In the above example, each property matches up with the corresponding property, comma-wise. (Ex pos 1 matches 1, pos. 2 matches with 2, etc). If there are not an equal number of values, then the values cycle back to the beginning. 
+
+## Background attachment
+
+Use `background-attachment` to specify how the image scrolls when the content scrolls. It can have the following values:
+
+- `scroll` - Causes the element's background to scroll when the page is scrolled. In effect, the background is fixed to the same position on the page, so it scrolls as the page scrolls. 
+- `fixed` - Fixes the element's background to the viewport, so it doesn't scroll when the page or element content is scrolled. The image stays in the same place the entire time. 
+- `local` - Fixes the background to the element it is set on, so when ou scroll the element, the background scrolls with it. 
+
+## Background shorthand property
+ 
+ This shorthand lets you set all the different properties at once. If you are using multiple backgrounds, separate the properties for each background with a comma. 
+
+ Shorthand rules:
+ 1. A `background-color` may only be specified after the final comma.
+ 2. The value for `background-size` may only be included immediately after `background-position`, separated with the '/' character, like this: center/80%.
+
+
+ # Borders
+
+ #### Shorthand 
+ ```css 
+.box { 
+  border: 1px solid black; 
+}
+ ```
+
+ #### Individual properties for shorthand
+
+```css
+.box { 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: black; 
+} 
+```
+
+You can also use `border-top-width`, etc, to get more granular. 
+
+## Rounded corners
+
+Use `border-radius` to created rounded corners. You can pass 2 lengths or percentages as the value: the first defines the horizontal radius, the second the vertical radius. Usually, you pass only one value.
+
+```css
+.box { 
+  border-radius: 10px; 
+} 
+```
+Or set each corner:
+```css
+.box { 
+  border-top-right-radius: 1em 10%; 
+} 
+```
