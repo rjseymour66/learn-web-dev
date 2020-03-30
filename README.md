@@ -766,3 +766,97 @@ The viewport is the visible area of your page in the browser that you are using 
 Viewport settings are relativea and change when you change the size of the viewport.
 
 `1vw` = 1% of the viewport width
+
+# Images, media, and form elements 
+
+Images and video are **replaced elements** - this means that CSS cannot affect their internal layout. They also have **aspect ratio**, which is a size in both horizontal (x) and vertical (y) dimensions, and will be displayed using the intrinsic dimensions by default.
+
+`object-fit` - size an image so that it completely covers a box. 
+
+The following example sizes an image down to fit:
+```css 
+.cover {
+  object-fit: cover;
+}
+```
+
+## Form elements 
+
+
+ ```css
+input[type="text"],
+input[type="email"] {
+  border: 2px solid #000;
+  margin: 0 0 1em 0;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  border: 3px solid #333;
+  background-color: #999;
+  border-radius: 5px;
+  padding: 10px 2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+input[type="submit"]:hover {
+  background-color: #333;
+}
+ ```
+
+### Setting inheritance on your forms for all browsers
+
+Some browsers do not inherit font styling by default. Set the following in the CSS to make sure it works:
+
+```css
+button, 
+input, 
+select, 
+textarea { 
+font-family : inherit; 
+font-size : 100%; 
+} 
+```
+
+### Setting box-sizing on your forms for all browsers
+
+Some browsers do not inherit box-styling by default. Set the following in the CSS to make sure it works:
+
+```css
+button, 
+input, 
+select, 
+textarea {  
+  box-sizing: border-box; 
+  padding: 0;
+  margin: 0; 
+}
+```
+
+### Textarea settings on your forms for all browsers
+
+Use this setting to stop IE from showing a scrollbar when there is no need for one
+```css
+textarea {
+  overflow: auto;
+}
+```
+
+## Final form settings
+```css
+button, 
+input, 
+select, 
+textarea { 
+  font-family: inherit; 
+  font-size: 100%; 
+  box-sizing: border-box; 
+  padding: 0; margin: 0; 
+} 
+
+textarea { 
+  overflow: auto; 
+}
+```
