@@ -1,0 +1,123 @@
+/*
+body {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+  }
+  
+  p {
+    line-height: 1.4;
+  }
+  
+  a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+  }
+  
+  a:link {
+    color: #265301;
+  }
+  
+  a:visited {
+    color: #437A16;
+  }
+  
+  a:focus {
+    border-bottom: 1px solid;
+    background: #BAE498;
+  }
+  
+  a:hover {
+    border-bottom: 1px solid;     
+    background: #CDFEAA;
+  }
+  
+  a:active {
+    background: #265301;
+    color: #CDFEAA;
+  }
+  */
+
+/*
+body {
+    width: 300px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+p {
+    line-height: 1.4;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:focus, a:hover {
+    border-bottom: 1px solid;
+}
+
+a:active {
+    color: red;
+}
+
+a[href*="http"] { 
+    background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+    background-size: 16px 16px;
+    padding-right: 19px;
+}
+*/
+
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+ul {
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 19.5%;
+    margin-right: 0.625%;
+    text-align: center;
+    line-height: 3;
+    color: black;
+}
+
+li:last-child a {
+    margin-right: 0;
+}
+
+a:link, a:visited, a:focus {
+    background: yellow;
+}
+
+a:hover {
+    background: orange;
+}
+
+a:active {
+    background: red;
+    color: white;
+}

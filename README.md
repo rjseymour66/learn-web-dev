@@ -1075,3 +1075,125 @@ Count down with the `reversed`:
   <li>Wash and chop the salad.</li>
   <li>Fill pita with salad, hummus, and fried halloumi.</li>
 </ol>
+
+# Styling links
+
+## Link states
+- link (unvisited) `link:default` : Default state for a link
+- visited `link:visited`: A link when it has already been visited
+- hover `link:hover`: A link when it is being hovered over
+- focus `link:focus`: A link when it has been focused (when it has been moved to by tabbing or with the HTMLElement.focus()). This is a pseudo-class
+- active `link:active`: A link when it is being clicked on (activated)
+
+## Typical link rules
+
+**NOTE**: The order is important because each rule builds on the last one.
+
+```css
+body {
+  width: 300px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+
+p {
+  line-height: 1.4;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {
+  color: #265301;
+}
+
+a:visited {
+  color: #437A16;
+}
+
+a:focus {
+  border-bottom: 1px solid; /* used instead or text-decoration for the underline */
+  background: #BAE498;
+}
+
+a:hover {
+  border-bottom: 1px solid;     
+  background: #CDFEAA;
+}
+
+a:active {
+  background: #265301;
+  color: #CDFEAA;
+}
+```
+
+## Including icons on links
+
+```css
+a[href*="http"] { /* add an icon to a link using background shorthand */
+    background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+    background-size: 16px 16px;
+    padding-right: 19px;
+}
+```
+
+## Styling links as buttons
+
+```css
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+}
+```
+The following rule removes padding from the ul element and sets its width to span 100% of the outer container (the body, in this case)
+```css
+ul {
+    padding: 0;
+    width: 100%;
+}
+```
+li elements are normally block. To create a horizontal list, you have to change it to inline.
+```css
+li {
+    display: inline;
+}
+```
+
+Next rule:
+- turn off `text-decoration` and `outline`
+- `display: inline-block`. li elements are inline by default. We don't want them to have their own lines (like they would using `block`), but we do want to be able to size them. `inline-block` lets us do that.
+- `width`, `margin-right` are all sizing. I do not understand how this works. look it up again 
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links
+```css
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 19.5%;
+    margin-right: 0.625%;
+    text-align: center;
+    line-height: 3;
+    color: black;
+}
+
+li:last-child a {
+    margin-right: 0;
+}
+
+a:link, a:visited, a:focus {
+    background: yellow;
+}
+
+a:hover {
+    background: orange;
+}
+
+a:active {
+    background: red;
+    color: white;
+}
+```
