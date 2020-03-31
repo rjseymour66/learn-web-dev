@@ -939,3 +939,51 @@ $base-color: #c6538c;
 ## Design plan
 
 https://www.lauraleeflores.com/design/design-process
+
+# Styling text
+
+## 2 categories of text styling properties
+1. Font styles - What font, how it is applied, how big it is, bold, italic, etc
+2. Text layout styles - Spacing and other layout features of the text, how it is aligned in the box
+
+## Fonts
+
+### Color
+Use for the color of the text, underline and overline
+### font-family: arial
+Use this to specify a font or list of fonts for the browser to apply to the selected items
+#### Web-safe fonts:
+- Arial
+- Courier new
+- Georgia
+- Times New Roman
+- Trebuchet MS 
+- Verdana 
+
+Use a font stack since you can't guarantee the availability of some fonts. Its a series of font fallbacks:
+```css
+p {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+```
+### Font size
+#### px
+The number of pixels high that you want the font to be 
+#### em
+Equal to the font size set on the parent element of the current element we are styling
+#### rem
+Like `em`, but 1 `rem` is equal to the font size set on the root element of the document, not the parent element.
+
+`font-style` - turns italic on and off
+`font-weight` - Sets how bold the text is
+`text-transform` - allows you to set your font to be transformed
+`text-decoration` - sets/unsets decorations on font, like underline, overline, line-through
+`text-shadow: 4px 4px 5px red;` - applies drop shadow. Use px most often
+`text-align` - controls how the text is aligned with its containing content box. Choose left, right, center, or justify (spreads the text out)
+`line-height` - sets the height of each line of text. Recommended between 1.5 - 2 
+
+### Font shorthand
+
+```css
+font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;
+```
