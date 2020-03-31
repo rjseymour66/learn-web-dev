@@ -860,3 +860,82 @@ textarea {
   overflow: auto; 
 }
 ```
+# Styling tables
+
+`table-layout: fixed` - set to `fixed` bc it usually makes the table behave a bit more predictably by default. This allows you to size your columns according to th ewidth of their headings, and then deal with their content as appropriate. 
+
+`border-collapse: collapse` - standard best practice. When you set borders on table elements, they will all have spacing between them. `border-collapse` gets rid of the spacing. 
+
+`border` - put one around the whole table. 
+
+`padding` - put some on the th and td elements of the table.
+
+## Table styling tips
+
+- Use percentages to make the design more responsive 
+- Use `table-layout: fixed` to create a more predictable table layout that allows you to easily set column widths by setting `width` on their headings
+- Use `border-collapse: collapse` to make the borders collapse into each other
+- Use `thead`, `tbody`, and `tfoot` to break up your table into logical chunks and provide extra opportunities to apply CSS to
+- Use zebra striping to make alternative rows easier to read
+- Use `text-align` to line up you `th` and `td` text to make things neater
+- `vertical-align: top` is good for placing header rows at the top of the box 
+
+# Debugging your CSS
+
+## DOM vs view source 
+
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS
+
+# Organizing your CMS
+
+```css
+/* || GENERAL STYLES */
+
+body { ... }
+
+h1, h2, h3, h4 { ... }
+
+ul { ... }
+
+blockquote { ... }
+
+/* || UTILITIES */
+A few things that you want to apply to a lot of different elements
+.nobullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* || SITEWIDE */
+Basic page layout, etc.
+.main-nav { ... }
+
+.logo { ... }
+
+/* || STORE PAGES */
+This is for the specific things
+
+.product-listing { ... }
+
+.product-box { ... }
+...
+```
+
+## OOCSS (Object Oriented CSS)
+
+Nicole Sullivan https://github.com/stubbornella/oocss/wiki
+
+## Defining variables
+
+```css
+$base-color: #c6538c;
+
+.alert {
+  border: 1px solid $base-color;
+}
+```
+
+## Design plan
+
+https://www.lauraleeflores.com/design/design-process
