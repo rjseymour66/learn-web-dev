@@ -987,3 +987,91 @@ Like `em`, but 1 `rem` is equal to the font size set on the root element of the 
 ```css
 font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;
 ```
+
+# Styling lists
+
+Make sure that lists keep the same horizontal and vertical spacing as the surrounding text. 
+
+## List-specific styles
+- `list-style-type`: Sets the bullets to use for the list
+```css
+ol {
+  list-style-type: upper-roman;
+}
+```
+- `list-style-position`: Sets whether the bullets appear inside the list items, or outside them before the start of each item.
+```css
+ol {
+  list-style-type: upper-roman;
+  list-style-position: inside;
+}
+```
+- `list-style-image`: Add a custom image for the bullet 
+```css
+ul {
+  list-style-image: url(star.svg);
+}
+```
+
+### Finished example
+
+```css
+ul {
+  padding-left: 2rem;
+  list-style-type: none;
+}
+
+ul li {
+  padding-left: 2rem;
+  background-image: url(star.svg);
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+}
+```
+
+- Set the padding-left of the ul down from the default 40px to 20px, then set the same amount on the list items. This is so that overall the list items are still lined up with the order list items and the description list descriptions, but the list items have some padding for the background images to sit inside. If we didn't do this, the background images would overlap with the list item text, which would look messy.
+- Set the list-style-type to none, so that no bullet appears by default. We're going to use background properties to handle the bullets instead.
+- Inserted a bullet onto each unordered list item
+  - `background-image`: This references the path to the image file you want to use as the bullet.
+  - `background-position`: This defines where in the background of the selected element the image will appear — in this case we are saying 0 0, which means the bullet will appear in the very top left of each list item.
+  - `background-size`: This sets the size of the background image. We ideally want the bullets to be the same size as the list items (or very slightly smaller or larger). We are using a size of 1.6rem (16px), which fits very nicely with the 20px padding we've allowed for the bullet to sit inside — 16px plus 4px of space between the bullet and the list item text works well.
+  - `background-repeat`: By default, background images repeat until they fill up the available background space. We only want one copy of the image inserted in each case, so we set this to a value of no-repeat.
+
+### List style shorthand
+
+Replace this:
+```css
+ul {
+  list-style-type: square;
+  list-style-image: url(example.png);
+  list-style-position: inside;
+}
+```
+
+with this:
+```css
+ul {
+  list-style: square url(example.png) inside;
+}
+```
+
+## Controlling list counting
+
+Change what number the list starts at with an attribute in the ol or ul tag. Also, use `value` to set your list items to a specific numeral:
+
+<ol start="4">
+  <li value="2">Toast pita, leave to cool, then slice down the edge.</li>
+  <li value="4">Fry the halloumi in a shallow, non-stick pan, until browned on both sides.</li>
+  <li value="6">Wash and chop the salad.</li>
+  <li value="8">Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
+
+Count down with the `reversed`:
+
+<ol start="4" reversed>
+  <li>Toast pita, leave to cool, then slice down the edge.</li>
+  <li>Fry the halloumi in a shallow, non-stick pan, until browned on both sides.</li>
+  <li>Wash and chop the salad.</li>
+  <li>Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
