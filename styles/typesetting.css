@@ -1,61 +1,112 @@
 /* General setup */
 
 html {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif font-size: 10px;
 }
 
 h1, h2, h3 {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1rem;
 }
+
 header {
     text-align: center;
 }
 
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     margin: 0 auto;
     min-width: 1000px;
     max-width: 1400px;
     line-height: 1.5;
-    letter-spacing: 1rem;
-    word-spacing: 1rem;
-  }
-  
-  /* Layout */
-  
-  section {
+}
+
+h2+p {
+    text-indent: 20px;
+}
+
+/* Layout */
+
+section {
     float: left;
     width: 50%;
-  }
-  
-  aside {
+}
+
+aside {
     float: left;
     width: 30%;
-  }
-  
-  nav {
+}
+
+nav {
     float: left;
     width: 20%;
-  }
-  
-  footer {
+}
+
+footer {
     clear: both;
-  }
-  
-  header, section, aside, nav, footer {
+}
+
+header, section, aside, nav, footer {
     padding: 20px;
-  }
-  
-  /* header and footer */
-  
-  header, footer {
+}
+
+/* header and footer */
+
+header, footer {
     border-top: 5px solid #a66;
     border-bottom: 5px solid #a66;
-  }
-  
-  /* WRITE YOUR CODE BELOW HERE */
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+
+a {
+    text-decoration: underline;
+}
+
+a:link {
+    color: #a66;
+}
+
+a:focus {
+    color: purple;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+a:focus {
+    color: blue;
+    text-decoration: none;
+}
+
+aside li {
+    line-height: 1.5;
+    list-style-type: square;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #a66;
+}
+
+li a {
+    text-decoration: none;
+    color: #a66;
+}
+
+nav {
+    font-size: 30px;
+}
+
+nav ul li {
+    box-sizing: content-box;
+    list-style-type: none;
+    border: 2px solid #a66;
+    text-align: center;
+    padding: 15px;
+    color: #a66;
+    margin: 15px;
+}
