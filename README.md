@@ -1197,3 +1197,66 @@ a:active {
     color: white;
 }
 ```
+
+# Web fonts
+
+## Font families
+
+Add this to the CSS to make the browser go through a list of fonts and apply whichever work with that browser.
+
+```css
+p {
+  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+}
+```
+
+## Web fonts
+Allow you to specify font files to be downloaded along with your websites as it is accessed.
+
+```css 
+@font-face {
+  font-family: "myFont";
+  src: url("myFont.woff");
+}
+
+/* Then, specify the font in a font family rule */
+
+html {
+  font-family: "myFont", "Bitstream Vera Serif", serif;
+}
+```
+
+### Free fonts
+https://www.fontsquirrel.com/
+https://www.dafont.com/
+https://everythingfonts.com/
+
+### Web-font generator
+https://www.fontsquirrel.com/tools/webfont-generator
+
+**TTF** - True Type Fonts
+**OTF** - Open Type Fonts
+
+## Online font service
+
+### Google fonts
+https://fonts.google.com/
+
+### Explaining @font-face
+
+```css
+@font-face {
+  font-family: 'ciclefina';
+  src: url('fonts/cicle_fina-webfont.eot');
+  src: url('fonts/cicle_fina-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/cicle_fina-webfont.woff2') format('woff2'),
+         url('fonts/cicle_fina-webfont.woff') format('woff'),
+         url('fonts/cicle_fina-webfont.ttf') format('truetype'),
+         url('fonts/cicle_fina-webfont.svg#ciclefina') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+```
+- `font-family` The name that you want to refer to the font as. You can put anything you want here, just be consistent with using it in the CSS 
+- `src` Specify the paths to the font files to be inmported into your CSS, and then the format for each font file
+- `font-weight`, `font-style` specify the weight and whether the font is italic or not.
