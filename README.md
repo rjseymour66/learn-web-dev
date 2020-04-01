@@ -1079,11 +1079,11 @@ Count down with the `reversed`:
 # Styling links
 
 ## Link states
-- link (unvisited) `link:default` : Default state for a link
-- visited `link:visited`: A link when it has already been visited
-- hover `link:hover`: A link when it is being hovered over
-- focus `link:focus`: A link when it has been focused (when it has been moved to by tabbing or with the HTMLElement.focus()). This is a pseudo-class
-- active `link:active`: A link when it is being clicked on (activated)
+- `a:default` link (unvisited) : Default state for a link
+- `a:visited` visited: A link when it has already been visited
+- `a:hover` hover: A link when it is being hovered over
+- `a:focus` focus: A link when it has been focused (when it has been moved to by tabbing or with the HTMLElement.focus()). This is a pseudo-class
+- `a:active` active: A link when it is being clicked on (activated)
 
 ## Typical link rules
 
@@ -1260,3 +1260,234 @@ https://fonts.google.com/
 - `font-family` The name that you want to refer to the font as. You can put anything you want here, just be consistent with using it in the CSS 
 - `src` Specify the paths to the font files to be inmported into your CSS, and then the format for each font file
 - `font-weight`, `font-style` specify the weight and whether the font is italic or not.
+
+# CSS layout
+
+CSS page layout techniques let us control where elements are positioned relative to their default position in normal layout flow, the other elements around them, their parent container, or the main viewport/window.
+
+## Normal flow
+
+This is how the browser lays out HTML pages bny default, with nothing done to control it. You should always check this first so that you know if you have good structure. 
+
+### Block elements
+
+Elements that appear one below the other. By default, these take up 100% of the width of its parent element, and are as tall as its content.
+
+
+### Inline elements
+
+Elements that appear beside each other. By default, they are as tall as their content and as wide as their content.
+
+You can't set width or height on inline elements. If you want to set `width` or `height` on an inline element, you have to change its display with either `display: block` or `display: inline-block`. 
+
+### CSS methods that change how elements are laid out
+`display` property: Following values change how elements behave in normal flow:
+  - `block`
+  - `inline`
+  - `inline-block`
+Can also switch on `CSS Grid` and `Flexbox`.  
+
+`float`: Causes block level elements to wrap alongside one side of an element, like the way images sometimes have text floating around them in magazine layouts.
+
+`position`: Allows you to precisely control the placement of boxes inside other boxes. `static` is the default in normal flow.
+
+`display:table`: you can use features desinged for styling the parts of an HTML table on non-table elements.
+
+`Multi-column layout` properties can cause the content of a block to layout in columns, like a newspaper.
+
+## The display property
+
+The main methods of achieving page layout in CSS are all values of the `display` property. Everything in normal flow has a value of `display`, which is used as the default way that elements they are set on behave. For example, paragraphs display below each other because they are `display:block`.
+
+You can change this. For example, li elements are `display:block` - they display underneath each other. But, you can set them to `display:inline` to make them display one after the other. This means that you can pick HTML elements for their semantic meaning, instead of how they look. You can edit how they look.
+
+## Flexbox
+
+Short for **Flexible Box Layout**, designed to make it easy to lay things out in one dimension, either as a row or a column. Items flex to fill additional space and shrink to fill smaller spaces.  
+
+First, use `display:flex` on the **parent** of the elements that you want to lay out. Then, all its direct children become flex items. 
+```css
+.wrapper {
+  display: flex;
+}
+```
+**NOTE**: Use `display:inline-flex` f you want to layout inline items as flexible boxes. 
+```html
+<div class="wrapper">
+  <div class="box1">One</div>
+  <div class="box2">Two</div>
+  <div class="box3">Three</div>
+</div>
+```
+### About the flex model
+- **main axis** - the axis that is running in the directin taht the flex items are being laid out. The start and end of this axis are called the **main start** and the **main end**.
+- **cross axis** - is the axis running perpendicular to the direction the flex items are being laid out in. The start and end are called the **cross start** and the **cross end**. 
+- **flex container** - the parent element that has `display:flex` set on it.
+- **flex items** - the items being laid out as flexible boxes.
+
+### Columns or rows?
+
+Use `flex-direction` to change which direction the main axis runs in. It is `row` by default, but use `column` to have the flex items stacked. There is also `row-reverse` and `column-reverse`
+
+### Wrapping 
+
+When you have a fixed amount of width or height in your layout, the children overflow their container, breaking the layout.  
+
+Use `flex-wrap:wrap` to fix this.  
+
+Add `flex: XXXpx` to the flex items to make sure that each flex item is at least XXXpx wide. 
+
+### flex-flow shorthand 
+
+`flex-flow` is shorthand for `flex-direction` and `flex-wrap`. For example:
+
+Replace the following:
+```css
+flex-direction: row;
+flex-wrap: wrap;
+```
+
+With this:
+```css
+flex-flow: row wrap;
+```
+
+### Flexible sizing of flex items 
+
+`flex: 1` is a unitless proportion value that dictates how much of the available space along the main axis each flex item takes up. The following example gives the article elements a value of 1, meaning that they all take up an equal amount of the spare space left after things like padding and margin have been set. 
+
+```css
+article {
+  flex: 1;
+}
+```
+
+If there are 3 articles,the following rule makes the 3rd article take up twice as much of the available width as the other two:
+
+```css
+article:nth-of-type(3) {
+  flex: 2;
+}
+```
+
+The first 2 take up 1/4 of the space each, and the 3rd one takes up 2/4 (1/2) of the space.  
+
+The following defines the flex sizing AND the minimum size of each flex item:
+
+```css
+article {
+  flex: 1 200px;
+}
+
+article:nth-of-type(3) {
+  flex: 2 200px;
+}
+```
+
+
+
+There are also properties that can be applied to flex items. They can change the way that the items flex, enabling them to expand or contract to fit available space. 
+
+The following example adds `flex` to all of our child items, with a value of 1. This causes the items to grow and fill the container rather than leaving space at the end.
+```css
+.wrapper {
+    display: flex;
+}
+
+.wrapper > div {
+    flex: 1;
+}
+```
+```html
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+</div>
+```
+
+## Grid layout 
+
+Flexbox is designed for 1D layouts, but **Grid Layout** is desinged for 2D - lining up things in rows and columns.  
+Use `display:grid` to switch on grid layout. 
+```css
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}
+```
+```html
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+    <div class="box4">Four</div>
+    <div class="box5">Five</div>
+    <div class="box6">Six</div>
+</div>
+```
+
+After you have a grid, you can place things on them where you want them, instead of having them placed automatically. `grid-column` and `grid-row` help set these:
+```css
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}
+
+.box1 {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+.box2 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.box3 {
+    grid-row: 2;
+    grid-column: 3;
+}
+```
+```html
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+</div>
+```
+
+## Floats 
+
+Floating changes the behavior of the element and all the block-level elements that follow it in normal flow. The element is moved left or right and removed from normal flow, and the other elements surround the floated item.
+
+4 possible values:
+- `left`: floats item to the left
+- `right`: floats item to the right
+- `none`: default, no floating
+- `inherit`: the value of the `flaot` property should be inherited from its parent element 
+
+## Positioning techniques
+
+Allows you to move an element from where it would normally be placed into another location. This is more about fine-tuning things. Understanding position helps you unerstand normal flow, and what it means to take an item out of normal flow. 
+
+5 types of positioning:
+- **Static positioning**: default for every element - puts element in normal position
+- **Relative positioning**: lets you modify an elements position relative to its position in normal flow. It can overlap with other elements. 
+- **Absolute positioning**: moves an element out of the normal flow like it is sitting in its own layer. Then, you fix the position relative to the edges of the pages html element.  
+- **Fixed positioning**: Similar to **absolute positioning**, except it fixes an element relative to the browser viewport instead of another element. Good for nav menus. 
+- **Sticky positioning**: it is static until it is in the viewport, then it is fixed in the screen. 
+
+## Table layout
+
+Old method that people used before Flexbox. Should be considered legacy.
+
+## Multi-column layout
+
+Create a column layout. Use one of the following to create this layout:
+- `column-count`: Tells the browser how many columns you want to have 
+- `column-width`: Tells the browser to fill the container with as many columns of at least that width.

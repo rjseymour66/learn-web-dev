@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'montserratregular';
+    src: url('montserrat-regular-webfont.woff2') format('woff2'),
+         url('montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'playfair_displayregular';
+    src: url('playfairdisplay-regular-webfont.woff2') format('woff2'),
+         url('playfairdisplay-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* General setup */
 
 * {
@@ -46,8 +64,85 @@ header, footer {
 
 body {
     font-family: 'PT Serif', serif;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: .5px;
+    word-spacing: .5px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
 }
 
 h1, h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'montserratregular', sans-serif;
+    letter-spacing: 1px;
+}
+
+h2 + p {
+    text-indent: 20px;
+}
+
+/* Links */
+
+a {
+    outline: none;
+    text-decoration: underline;
+    padding: 2px 1px 0;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: #a66;
+}
+
+a:focus {
+    text-decoration: none;
+    background: rgba(170, 102, 102, .2);
+}
+
+a:hover {
+    text-decoration: none;
+    background: rgba(170, 102, 102, .5);
+    color: white;
+}
+
+a:active {
+    background-color: rgba(162, 102, 170, 0.2);
+    color: black;
+}
+
+ul {
+    line-height: 2;
+    list-style-type: circle;
+}
+
+ol {
+    line-height: 2;
+}
+
+nav ul {
+    list-style-type: none;
+    
+}
+
+nav ul a {
+    text-decoration: none;
+    
+}
+
+nav ul li {
+    border: 1px solid #a66;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+    margin: 10px;
 }
