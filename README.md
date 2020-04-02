@@ -1301,7 +1301,7 @@ The main methods of achieving page layout in CSS are all values of the `display`
 
 You can change this. For example, li elements are `display:block` - they display underneath each other. But, you can set them to `display:inline` to make them display one after the other. This means that you can pick HTML elements for their semantic meaning, instead of how they look. You can edit how they look.
 
-## Flexbox
+# Flexbox
 
 Short for **Flexible Box Layout**, designed to make it easy to lay things out in one dimension, either as a row or a column. Items flex to fill additional space and shrink to fill smaller spaces.  
 
@@ -1524,8 +1524,6 @@ button {
 }
 ```
 
-
-
 There are also properties that can be applied to flex items. They can change the way that the items flex, enabling them to expand or contract to fit available space. 
 
 The following example adds `flex` to all of our child items, with a value of 1. This causes the items to grow and fill the container rather than leaving space at the end.
@@ -1546,7 +1544,177 @@ The following example adds `flex` to all of our child items, with a value of 1. 
 </div>
 ```
 
-## Grid layout 
+# Grid layout 
+
+A grid is a collection of horizontal and vertical lines creating a pattern against which we can line up our design elements. A grid has **rows**, **columns**, and **gutters**, which are the gaps between each row and column. 
+
+## Defining a grid 
+
+To define a grid, use the `display: grid` property. When you use this, all of the direct children of this container become grid items. 
+
+To add columns to the grid, enter the following:
+```css
+.container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+}
+```
+
+## Flexible grids with fr 
+
+Use `fr` to flexibly size grid rows and columns. This unit represents one fraction of the available space in the grid container and distributes it by proportion.  
+
+```css 
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+```
+If you mix `fr` with fixed length tracks, the space for the fixed tracks is dedicated before the other tracks are laid out. 
+
+## Gaps between trakcs
+
+Use one of the following to set gaps:
+- `grid-column-gap` for gaps between columns
+- `grid-row-gap` for gaps between rows
+- `grid-gap` to set both at once
+```css
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 20px;
+    gap: 20px;
+}
+```
+
+**NOTE**: 'grid-gap' is EOL, now it is just 'gap'. The above example includes both.
+
+## Repeating track listings
+
+You can repeat all, or a section of, your track listing using repeat notation.
+
+`grid-template-columns: repeat(3, 1fr);`  
+3 is how many times you want the listing to repeat, and the second value is the track listing that you want to repeat  
+
+## The implicit and explicit grid
+
+You create an explicit grid with `grid-template-columns` or `grid-template-rows`. The implicit grid is created when content is placed outside of that grid, such as into rows. These are analogous to the main and cross flexbox axis. 
+
+Tracks in the implicit grid are `auto` sized, which means that tthey are large enough to fit their content. To give implicit grid tracs a size, use: 
+- `grid-auto-columns`
+- `grid-auto-rows`
+
+```css
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100px;
+    grid-gap: 20px;
+    gap: 20px;
+}
+```
+
+## minmax() function
+
+Lets you set a minimum and maximum size for a track. For example, in `minmax(100px, auto)`, the minimum size is 100px, and the max is auto, which expands to fit the content. 
+```css
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 20px;
+}
+```
+
+## As many columns that will fit 
+
+Use `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)` to have the grid create as many columns as possible.
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 20px;
+}
+```
+The grid is creating as many 200 pixel columns as will fit in the container, then sharing the leftover space between all the columns since the max is `1fr` (`fr` distributes evenly between the tracks)
+- `auto-fill` - tells the grid to add as many columns as possible 
+- `minmax()` - make the columns at least 200px, and the max 1fr 
+
+## Line-based placement 
+
+Place things on the grid by specifying the start and end line using the following:
+
+- `grid-column-start`
+- `grid-column-end`
+- `grid-row-start`
+- `grid-row-end`
+And the shorthand values:
+- `grid-column`
+- `grid-row`
+
+## Positioning with grid-template areas
+
+```css
+.container {
+    display: grid;
+    grid-template-areas: "header header" "sidebar content" "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+}
+
+header {
+    grid-area: header;
+}
+
+article {
+    grid-area: content;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+footer {
+    grid-area: footer;
+}
+```
+Rules for `grid-template-areas`:
+- You must fill every cell of the grid
+- To span two cells, repeat the name
+- To leave a cell empty, use a `.` 
+- Areas must be rectangular - you can't have an l-shaped area, for example
+- Areas can't be repeated in different locations 
+
+
+## CSS grid frameworks
+
+Grid framesworks are based around 12 or 16 column grids. 
+
+The following contains a 12 column grid:
+```css 
+header {
+  grid-column: 1 / 13;
+  grid-row: 1;
+}
+
+article {
+  grid-column: 4 / 13;
+  grid-row: 2;
+}
+
+aside {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+
+footer {
+  grid-column: 1 / 13;
+  grid-row: 3;
+}
+```
+
+
 
 Flexbox is designed for 1D layouts, but **Grid Layout** is desinged for 2D - lining up things in rows and columns.  
 Use `display:grid` to switch on grid layout. 
