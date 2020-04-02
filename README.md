@@ -1653,6 +1653,28 @@ And the shorthand values:
 - `grid-column`
 - `grid-row`
 
+```css
+header {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+article {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+aside {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+footer {
+    grid-column: 1 / 3;
+    grid-row: 3;
+}
+```
+
 ## Positioning with grid-template areas
 
 ```css
