@@ -1384,6 +1384,82 @@ article:nth-of-type(3) {
 }
 ```
 
+### flex: shorthand vs longhand
+
+`flex` is shorthand for the following three values:
+1. `flex-grow` - the proportional values discussed above. Ex., `flex: 1`;
+2. `flex-shrink` - when flex items are overflowing their container, this specifies how much of the overflowing amount is taken away from each flex item's size to stop them from overflowing
+3. `flex-basis` - this is the `200px` in `flex: 1 200px`. 
+
+### Horizontal and vertical alignment
+
+# Toolbars
+
+This is for a div of buttons with no other html tags:
+
+```css
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+```
+`align-items` controls where the flex items sit on the cross axis. The cross axis runs vertically for English text 
+- `stretch` is the default value. It stretches all flex items to fill the parent in the direction of the cross axis. 
+- `center` causes the elements to retain their intrinsic elements but be centered along the cross axis 
+- `flex-start` and `flex-end` aligns all items at the start and end of the cross axis
+
+To override `align-items`, use `align-self`:
+
+```css
+button:first-child {
+  align-self: flex-end;
+}
+```
+`justify-content` controls where the flex items sit on the main axis:  
+- `flex-start` is default, which makes all the items sit at the start of the main axis   
+- `flex-end` makes them sit at the end  
+- `center` makes them sit at the center  
+- `space-around` distributes all the items evenly along the main axis with a bit of space at both ends   
+- `space-between` is the same as `space-around`, except that it doesn't leave space at the end  
+
+## Ordering flex items 
+
+You can change the layout order of flex items without affecting the source order.
+
+```css
+button:first-child {
+  order: 1;
+}
+```
+
+This moves the first button to the end of the row of buttons by doing the following:
+
+- by default, all flex items have an order value of 0  
+- flex items with higher order values set on them will appear later in the display order than items with lower order values  
+- flex items with the same order value appear in their source order. For example, items ordered 2, 1, 1, 0 appear in 4th, 2nd, 3rd, 1st  
+  - the 3rd item appears after the 2nd because it has the same source order value and is after it in the source order  
+
+You can use negative values to make items appear earlier than items with 0 set on them:
+
+```css
+button:last-child {
+  order: -1;
+}
+```
+
+## Nested flex boxes 
+
+First, set all of the children of the part with the nested HTML to be laid out as flexible boxes:
+
+```css
+section {
+  display: flex;
+}
+```
+
+
+
 
 
 There are also properties that can be applied to flex items. They can change the way that the items flex, enabling them to expand or contract to fit available space. 
