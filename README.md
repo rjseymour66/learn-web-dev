@@ -1833,3 +1833,44 @@ When you add `float: left | right | both` to something, then you are taking it o
 ### Best practice for cleared
 
 `display: flow-root` instead of `overflow: auto`. 
+
+# Positioning
+
+Positioning lets you take elements out of the normal flow and put them where you want them: on top of one another, in the same position in the viewport, etc. 
+
+## Static positioning
+
+This is the default. There are no position changes when you use this.
+
+## Relative positioning
+
+| Property  | Value  | Description |
+|:----------|:-------|:------------|
+| position  | static | Puts the element into the normal position |
+|           | relative | Similar to static, but you can make it overlap other elements after it is placed | 
+|           | top, bottom, left, right | Used with `position` to tell you exactly where to move the positioned element. The elements do not work as expected - think about pushing on the specified side of the box. So, `top` pushes the element down from the top |
+|           | absolute | Removed from the normal doc flow and sits on its own layer. Good for popup boxes, control menus, rollover panels, UI features that can be dragged and dropped anywhere on the page.  `top`, `bottom`, `left`, and `right` specify the distance the element should be ffrom each containing element's sides. Ex, `top: 30px` means 30px from the containing element's top. |
+|           | fixed  | Fixes an element in place relative to the viewport |
+|           | sticky | Allows a positioned element to act like it is relatively positioned until it is scrolled to a certain threshold point, after which it becomes fixed. Good to make nav bar stick to the top of the page until a certain point, and then stick. | 
+| z-index   | integer | Imaginary line that runs from the surface of the screen to the user's eyes. Lets you put elements forward or backward, using positive and negative numbers. Default is 0. | 
+
+## Positioning context
+This is which element the absolutely positioned element is positioned relative to. To do this, set positioning on one of the element's ancestors. For example, set `position: relative` on the body element to make any positioning for elements in the body relative to the body.
+
+## Fixed positioning
+
+```css
+h1 {
+    position: fixed;
+    top: 0;
+    width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 10px;
+}
+```
+- `top` makes it stick to the top of the screen
+You have to move the elements down on the page, though, because the fixed element no longer takes up space in the normal flow. For example, if you fix the header, the first paragraph displays under the header, so you have to move that down a little.
+
+## Sticky
+Use this to make elements relatively positioned until they are scrolled to a certain spot on the screen, then they are fixed. Good for navs.
