@@ -1848,7 +1848,7 @@ This is the default. There are no position changes when you use this.
 |:----------|:-------|:------------|
 | position  | static | Puts the element into the normal position |
 |           | relative | Similar to static, but you can make it overlap other elements after it is placed | 
-|           | top, bottom, left, right | Used with `position` to tell you exactly where to move the positioned element. The elements do not work as expected - think about pushing on the specified side of the box. So, `top` pushes the element down from the top |
+| top, bottom, left, right | px or % (i think) |  Used with `position` to tell you exactly where to move the positioned element. The elements do not work as expected - think about pushing on the specified side of the box. So, `top` pushes the element down from the top |
 |           | absolute | Removed from the normal doc flow and sits on its own layer. Good for popup boxes, control menus, rollover panels, UI features that can be dragged and dropped anywhere on the page.  `top`, `bottom`, `left`, and `right` specify the distance the element should be ffrom each containing element's sides. Ex, `top: 30px` means 30px from the containing element's top. |
 |           | fixed  | Fixes an element in place relative to the viewport |
 |           | sticky | Allows a positioned element to act like it is relatively positioned until it is scrolled to a certain threshold point, after which it becomes fixed. Good to make nav bar stick to the top of the page until a certain point, and then stick. | 
