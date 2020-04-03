@@ -1821,3 +1821,15 @@ Old method that people used before Flexbox. Should be considered legacy.
 Create a column layout. Use one of the following to create this layout:
 - `column-count`: Tells the browser how many columns you want to have 
 - `column-width`: Tells the browser to fill the container with as many columns of at least that width.
+
+# Floats
+
+Created to allow web devs to implement simple layouts involving an image floating inside a column of text. Since flex and grid came out, this is regarded as a legacy technique.  
+
+When you add `float: left | right | both` to something, then you are taking it out of the normal layout flow. Make sure to add `margin: Xpx` so that there are is space between the floating object and the text. 
+
+`clear: left | right` keeps an element from coming up on the floated object. You can also use `overflow: auto`.
+
+### Best practice for cleared
+
+`display: flow-root` instead of `overflow: auto`. 
