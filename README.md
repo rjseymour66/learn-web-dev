@@ -1855,7 +1855,7 @@ This is the default. There are no position changes when you use this.
 | z-index   | integer | Imaginary line that runs from the surface of the screen to the user's eyes. Lets you put elements forward or backward, using positive and negative numbers. Default is 0. | 
 
 ## Positioning context
-This is which element the absolutely positioned element is positioned relative to. To do this, set positioning on one of the element's ancestors. For example, set `position: relative` on the body element to make any positioning for elements in the body relative to the body.
+Use with `absolute`. This is which element the absolutely positioned element is positioned relative to. To do this, set positioning on one of the element's ancestors. For example, set `position: relative` on the body element to make any positioning for elements in the body relative to the body.
 
 ## Fixed positioning
 
@@ -1874,3 +1874,65 @@ You have to move the elements down on the page, though, because the fixed elemen
 
 ## Sticky
 Use this to make elements relatively positioned until they are scrolled to a certain spot on the screen, then they are fixed. Good for navs.
+
+# Multiple column layout
+
+Also called `multicol`. Use the following to add the number of columns: 
+```css
+.container {
+  column-count: 3;
+}
+```
+
+Or, set by column-width to get as many columns as the browser size allows of the specified width:
+```css
+.container {
+    column-width: 200px;
+}
+```
+
+## Styling the columns
+
+Add a gap between columns:
+
+```css
+.container {
+    column-width: 200px;
+    column-gap: 20px;
+}
+```
+
+Use `column-rule` to add a border to the columns:
+
+```css
+.container {
+  column-count: 3;
+  column-gap: 20px;
+  column-rule: 4px dotted rgb(79, 185, 227);
+}
+```
+
+## Spanning columns
+
+Make an element span across columns, breaking up the content but keeping the columns in place. Think about when magazines put big quotes across the page. 
+
+```css
+.spanning {
+    column-span: all;
+}
+```
+
+# Columns and fragmentation
+
+This makes sure that containers are never separated in case the page size breaks up the columns in a weird way. Use the `break-inside: avoid` and `page-break-inside: avoid` to set: 
+
+```css
+.card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background-color: rgb(207, 232, 220);
+    border: 2px solid rgb(79, 185, 227);
+    padding: 10px;
+    margin: 0 0 1em 0;
+}
+```

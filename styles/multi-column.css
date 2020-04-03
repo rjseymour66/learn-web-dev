@@ -1,0 +1,22 @@
+body {
+    width: 90%;
+    max-width: 900px;
+    margin: 2em auto;
+    font: .9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+.container {
+    column-width: 200px;
+    column-gap: 20px;
+}
+
+.container {
+    column-count: 3;
+    column-gap: 20px;
+    column-rule: 4px dotted rgb(79, 185, 227);
+}
+
+.spanning {
+    column-span: all;
+    background: red;
+}
