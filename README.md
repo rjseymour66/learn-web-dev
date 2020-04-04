@@ -1,5 +1,32 @@
 # CSS
 
+# Flexbox cheat sheet
+
+## Parent (container) properties
+
+| property| values | definition |
+|:--------|:-------|:-----------|
+|`display`  | `flex` or `inline-flex` | This defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children. |
+| `flex-direction` | `row`, `row-reverse`, `column`, `column-reverse` | This establishes the main-axis to define the direction that flex items are placed in the flex container. Flexbox is a single-direction layout concept. |
+| `flex-wrap` | `nowrap`, `wrap`, `wrap-reverse` | Change that and allow the items to wrap as needed with this property. |
+| `flex-flow` | <`flex-direction`> <`flex-wrap`> | Shorthand for `flex-direction` and `flex-wrap` properties, which together define the flex container’s main and cross axes. The default value is row nowrap. |
+| `justify-content` | `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly` | defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.|
+| `align-items` | `flex-start`, `flex-end`, `center`, `stretch`, `baseline` | Defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the `justify-content` version for the cross axis (perpendicular to the main-axis). |
+| `align-content` | `flex-start`, `flex-end`, `center`, `stretch`, `space-between`, `space-around` | Aligns a flex container’s lines within when there is extra space in the cross-axis, similar to how `justify-content` aligns individual items within the main-axis. |
+
+## Child properties
+
+| property| values | definition |
+|:--------|:-------|:-----------|
+| `order`   | <`integer`> | By default, flex items are laid out in the source order. However, the order property controls the order in which they appear in the flex container. |
+| `flex-grow` | <`integer`> | This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up. |
+| `flex-basis` | <`length`> or `auto` | Defines the default size of an element before the remaining space is distributed. The `auto` keyword means “look at my width or height property”
+| `align-start` | `flex-start`, `flex-end`, `center`, `stretch`, `baseline` | This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items. |
+
+
+
+
+
 ## Reference
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
 
