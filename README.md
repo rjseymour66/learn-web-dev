@@ -21,7 +21,7 @@
 | `order`   | <`integer`> | By default, flex items are laid out in the source order. However, the order property controls the order in which they appear in the flex container. |
 | `flex-grow` | <`integer`> | This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up. |
 | `flex-basis` | <`length`> or `auto` | Defines the default size of an element before the remaining space is distributed. The `auto` keyword means “look at my width or height property”
-| `align-start` | `flex-start`, `flex-end`, `center`, `stretch`, `baseline` | This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items. |
+| `align-self` | `flex-start`, `flex-end`, `center`, `stretch`, `baseline` | This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items. |
 
 
 
