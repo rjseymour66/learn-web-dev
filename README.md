@@ -24,7 +24,109 @@
 | `align-self` | `flex-start`, `flex-end`, `center`, `stretch`, `baseline` | This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items. |
 
 
+# Grid row / column cheatsheet
 
+Creates a 3 x 4 grid.
+
+## Grid container
+
+```css
+.container {
+  display: grid;
+  width: 750px;
+  height: 600px;
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: 80px 1fr 1fr 100px;
+  grid-gap: 1rem;
+}
+```
+## Assign areas by row / column
+
+Ex: `grid-row: <first horizontal line> / <last horizontal line>`
+    `grid-column: <first vertical line> / <last vertical line>`
+
+```css
+.header {
+  grid-row: 1 / 2;
+  grid-column: 1 / 4;
+}
+
+.sidebar {
+  grid-row: 2 / 4;
+  grid-column: 1 / 2;
+}
+
+.content-1 {
+  grid-row: 2 / 3;
+  grid-column: 2 / 4;
+}
+
+.content-2 {
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+}
+
+.content-3 {
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+}
+
+.footer {
+  grid-row: 4 / 5;
+  grid-column: 1 / 4;
+}
+```
+
+# Grid template areas cheatsheet
+
+Creates a 3 x 4 grid
+
+## Grid container
+
+```css
+.container {
+  display: grid;
+  width: 100%;
+  height: 600px;
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: 80px 1fr 1fr 100px;
+  grid-gap: 1rem;
+  grid-template-areas:
+      "header header header"
+      "sidebar content-1 content-1"
+      "sidebar content-2 content-3"
+      "footer footer footer";
+}
+```
+
+## Assign template areas
+
+```css
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content-1 {
+  grid-area: content-1;
+}
+
+.content-2 {
+  grid-area: content-2;
+}
+
+.content-3 {
+  grid-area: content-3;
+}
+
+.footer {
+  grid-area: footer;
+}
+```
 
 
 ## Reference
